@@ -1,0 +1,113 @@
+button{
+    display: flex;
+}
+    
+.input{
+    display: flex; 
+    color: green;  
+    font-weight: bold; 
+    text-align: center; 
+}
+    
+.input::placeholder{
+    color: black;
+    font-size: 11px; 
+    font-weight: bold;  
+}
+
+.header{
+    display: flex; 
+    color: white; 
+    justify-content: center;  
+}
+
+.controls{
+    display: flex;   
+    flex-wrap: wrap; 
+    min-height: 30px; 
+    justify-content: center; 
+    background-color: green; 
+    border: 1px solid white; 
+    border-radius: 15px; 
+}
+
+.container{
+    display: flex; 
+    min-height: 62vh; 
+    justify-content: center;  
+}
+
+.triangle {
+    display: flex;  
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid green; 
+    animation-name: triangles; 
+    animation-duration: 5s;
+    margin-top: 100px;
+    position: absolute; 
+    animation-iteration-count: infinite;  
+    animation-timing-function: linear; 
+}
+
+
+@keyframes triangles {
+    0%{
+        transform: rotate(999900deg);  
+    }100%{
+        color: green; 
+    } 
+}
+
+.numbers{
+    color: white; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    padding: 0% 5% 0% 5%;    
+    flex-wrap: wrap;  
+    padding-bottom: 25px;  
+}
+
+.choice1{
+    background: black; 
+    border-radius: 50%; 
+    border: 1px solid green; 
+    display: flex; 
+    height: 30px;
+    width: 21px; 
+    padding: 0px 9px 9px 16px; 
+}
+
+.choice2{
+    background: black; 
+    border-radius: 50%; 
+    border: 1px solid green; 
+    display: flex; 
+    height: 30px;
+    width: 21px; 
+    padding: 0px 13px 9px 12px;   
+}
+
+.choice3{
+    border-radius: 50%; 
+    border: 1px solid green; 
+    display: flex; 
+    height: 30px;
+    width: 21px; 
+    padding: 0px 14px 9px 11px; 
+    background: black; 
+}
+
+.round2{
+    color: white; 
+    border: 1px solid green; 
+    display: flex; 
+    justify-content: center; 
+    width: 280px; 
+    margin: auto; 
+    font-size: 20px;  
+    padding: 10px; 
+    transform: translate(0px, -380px); 
+    opacity: 0; 
+}
