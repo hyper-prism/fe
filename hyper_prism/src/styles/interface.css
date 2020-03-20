@@ -1,19 +1,6 @@
 button{
     display: flex;
 }
-    
-.input{
-    display: flex; 
-    color: green;  
-    font-weight: bold; 
-    text-align: center; 
-}
-    
-.input::placeholder{
-    color: black;
-    font-size: 11px; 
-    font-weight: bold;  
-}
 
 .header{
     display: flex; 
@@ -24,11 +11,23 @@ button{
 .controls{
     display: flex;   
     flex-wrap: wrap; 
-    min-height: 30px; 
     justify-content: center; 
     background-color: green; 
-    border: 1px solid white; 
-    border-radius: 15px; 
+}
+
+.controls button{
+    display: flex; 
+    justify-content: center; 
+    width: 50%; 
+    border-color: green; 
+    background-color: green; 
+    text-align: center; 
+    color: white; 
+    font-weight: 100; 
+    padding: 10px; 
+    font-size: 15px;
+    font-weight: 100;
+    letter-spacing: 1.2px;
 }
 
 .container{
@@ -43,7 +42,7 @@ button{
     border-bottom: 100px solid green; 
     animation-name: triangles; 
     animation-duration: 5s;
-    margin-top: 40%;
+    margin-top: 38%;
     position: absolute; 
     animation-iteration-count: infinite;  
     animation-timing-function: linear; 
@@ -52,10 +51,16 @@ button{
 
 @keyframes triangles {
     0%{
-        transform: rotate(999900deg);  
+        transform: rotate(999909deg);  
     }100%{
         color: green; 
     } 
+}
+
+.controls-container{
+    position: absolute;
+    bottom: 0px;
+    width: 100%; 
 }
 
 .numbers{
@@ -63,18 +68,16 @@ button{
     display: flex; 
     flex-direction: row; 
     flex-wrap: wrap;  
-    position: absolute;
-    bottom: 0px; 
+ 
     width: 100%; 
-    padding-bottom: none; 
-    height: 15%; 
 }
 
 .numbers div{
     width: 33.3%; 
+    height: 30%;
     margin-bottom: 0px;
-
 }
+
 .choice1{
     background: black; 
     border: 1px solid green; 
@@ -86,11 +89,11 @@ button{
 }
 
 .numbers h1{
-    font-size: 45px; 
+    font-size: 35px; 
     font-weight: 100; 
     margin-top: 0px; 
+    padding: 10px; 
 }
-
 
 .round2{
     color: white; 
