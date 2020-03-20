@@ -33,7 +33,6 @@ button{
 
 .container{
     display: flex; 
-    min-height: 62vh; 
     justify-content: center;  
 }
 
@@ -44,7 +43,7 @@ button{
     border-bottom: 100px solid green; 
     animation-name: triangles; 
     animation-duration: 5s;
-    margin-top: 100px;
+    margin-top: 40%;
     position: absolute; 
     animation-iteration-count: infinite;  
     animation-timing-function: linear; 
@@ -63,41 +62,35 @@ button{
     color: white; 
     display: flex; 
     flex-direction: row; 
-    justify-content: space-between; 
-    padding: 0% 5% 0% 5%;    
     flex-wrap: wrap;  
-    padding-bottom: 25px;  
+    position: absolute;
+    bottom: 0px; 
+    width: 100%; 
+    padding-bottom: none; 
+    height: 15%; 
 }
 
+.numbers div{
+    width: 33.3%; 
+    margin-bottom: 0px;
+
+}
 .choice1{
     background: black; 
-    border-radius: 50%; 
     border: 1px solid green; 
     display: flex; 
-    height: 30px;
-    width: 21px; 
-    padding: 0px 9px 9px 16px; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%;
+    margin-bottom:0px; 
 }
 
-.choice2{
-    background: black; 
-    border-radius: 50%; 
-    border: 1px solid green; 
-    display: flex; 
-    height: 30px;
-    width: 21px; 
-    padding: 0px 13px 9px 12px;   
+.numbers h1{
+    font-size: 45px; 
+    font-weight: 100; 
+    margin-top: 0px; 
 }
 
-.choice3{
-    border-radius: 50%; 
-    border: 1px solid green; 
-    display: flex; 
-    height: 30px;
-    width: 21px; 
-    padding: 0px 14px 9px 11px; 
-    background: black; 
-}
 
 .round2{
     color: white; 

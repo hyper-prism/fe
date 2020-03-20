@@ -1,29 +1,50 @@
 import React from 'react'
+import '../styles/interface.css'
 
 export default class Interface extends React.Component{
     constructor(){
         super()
+        this.state = {
+            button1: '1',
+            button2: '2',
+            button3: '3'
+        }
+    }
+
+    buttonHandler = event => {
+        console.log(event.value)
+    }   
+
+    submitHandler = () => {
+
     }
 
     render(){
+        console.log(this.state.button1)
+
         return(
             <div>
-                <h1 class = "header">Hyper Prism</h1>
-                <div class = "container">
-                    <div class = "triangle"></div> 
+                <h1 class="header">Hyper Prism</h1>
+                <div class="container">
+                    <div class="triangle"></div> 
                 </div> 
-                <div class = "controls">
-                    <button onClick = "submit();">Submit</button>
-                    <input placeholder = "Enter Guess" class = "input"></input>
-                    <button class = "restart">Restart</button>
-                </div> 
-                <div class = "numbers"> 
-                    <h2 class = "choice1" onClick = "button1();"> 1 </h2>
-                    <h2 class = "choice2" onClick = "button2();"> 2 </h2>
-                    <h2 class = "choice3" onClick = "button3();"> 3 </h2>
-                </div>     
-                <div class = "round2">Begin Next Round</div> 
+          
+                    <div class = "numbers"> 
+                        <div>
+                            <h1 class="choice1">I</h1>
+                        </div> 
+                        <div> 
+                            <h1 class="choice1" value='1'>II</h1>
+                        </div> 
+                        <div> 
+                            <h1 class="choice1">III</h1>
+                        </div> 
+                    </div>    
+                    <div class= "round2">Begin Next Round</div> 
             </div> 
         )
     }
 }
+
+
+

@@ -66,3 +66,256 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
+
+
+
+var header = document.querySelector(".header");  
+var input = document.querySelector(".input"); 
+var button = document.querySelector("button"); 
+var triangle = document.querySelector(".triangle"); 
+var restart = document.querySelector(".restart"); 
+var turns = 0; 
+var burns = 0;
+var selector = 0; 
+var score = 0; 
+var numbers = document.querySelector(".numbers"); 
+var choice1 = document.querySelector(".choice1");
+var choice2 = document.querySelector(".choice2");
+var choice3 = document.querySelector(".choice3");
+var nextRound = document.querySelector(".round2"); 
+
+var original = function (){
+triangle.style.borderBottom = "100px solid green";
+triangle.style.borderLeft = "50px solid transparent";
+triangle.style.borderRight = "50px solid transparent";
+triangle.style.transition = "3s";
+}
+
+
+var correct1 = function() {
+triangle.style.borderBottom = "150px solid teal";
+triangle.style.borderLeft = "75px solid transparent";
+triangle.style.borderRight = "75px solid transparent";
+triangle.style.transition = "3s";
+};
+
+var correct2 = function() {
+triangle.style.borderBottom = "200px solid white";
+triangle.style.borderLeft = "100px solid transparent";
+triangle.style.borderRight = "100px solid transparent";
+triangle.style.transition = "3s";
+};
+
+var correct3 = function() {
+triangle.style.borderBottom = "400px solid white";
+triangle.style.borderLeft = "200px solid transparent";
+triangle.style.borderRight = "200px solid transparent";
+triangle.style.transition = "6s"
+triangle.style.opacity = "0"; 
+};
+
+var loss = function(){
+triangle.style.borderBottom = "50px solid maroon";
+triangle.style.borderLeft = "25px solid transparent";
+triangle.style.borderRight = "25px solid transparent";
+triangle.style.transition = "3s";
+};
+
+var loss2 = function(){
+triangle.style.borderBottom = "24px solid purple";
+triangle.style.borderLeft = "12px solid transparent";
+triangle.style.borderRight = "12px solid transparent";
+triangle.style.transition = "3s";
+}
+
+var loss3 = function(){
+triangle.style.borderBottom = "12px solid black";
+triangle.style.borderLeft = "6px solid transparent";
+triangle.style.borderRight = "6px solid transparent";
+triangle.style.transition = "3s";
+}
+
+var game2 = function(){
+  triangle.style.animationIterationCount = 0; 
+  nextRound.style.opacity = "1"; 
+  nextRound.style.transition = "1s"; 
+}
+
+function buttonInput(){
+  if(choice1.style.background == "green"){
+   selector = 1; 
+} else if(choice2.style.background == "green") {
+   selector = 2; 
+} else if(choice3.style.background == "green") {
+   selector = 3; 
+} else {
+ selector = 0;  
+}
+}
+
+
+function submit(){
+ buttonInput(); 
+ var random = Math.floor(Math.random() * 3) + 1; 
+ header.textContent = random;
+  if(random == selector){
+   turns += 1; 
+    if(turns === 1 && burns === 0){
+      correct1();
+    }else if(turns === 2 && burns === 0){
+      correct2();
+    }else if(turns === 3 && burns === 0){  //-------------winner
+      score += 9; 
+      correct3();  
+      input.placeholder = score; 
+      game2(); 
+    }else if (turns === 1 && burns === 1){
+      original(); 
+    }else if ( turns === 2 && burns === 1){
+      correct1(); 
+    }else if (turns === 3 && burns === 1){
+      correct2(); 
+    }else if (turns === 4 && burns === 1){ //------------winner 
+      score += 7; 
+      correct3();
+      input.placeholder = score;  
+      game2(); 
+    }else if (turns === 1 && burns === 2){
+      loss(); 
+    }else if (turns === 2 && burns === 2){
+      original(); 
+    }else if (turns === 3 && burns === 2){
+      correct1(); 
+     } else if(turns === 4 && burns === 2){
+      correct2(); 
+     } else if(turns === 5 && burns === 2){  //--------------winner
+      correct3();
+      score += 5; 
+      input.placeholder = score; 
+      game2(); 
+     } else if(turns === 1 && burns === 3){
+       loss2(); 
+     } else if(turns === 2 && burns === 3){
+       loss(); 
+     }else if(turns === 3 && burns === 3){
+       original(); 
+     }else if(turns === 4 && burns === 3) {
+       correct1(); 
+     }else if(turns === 5 && burns === 3){
+       correct2(); 
+     }else if(turns === 6 && burns === 3){ //------------winner
+       correct3(); 
+       score += 3; 
+       input.placeholder = score; 
+       game2(); 
+     }else if(turns === 2 && burns === 4){
+      loss2(); 
+     }else if(turns === 3 && burns === 4){
+      loss(); 
+     }else if(turns === 4 && burns === 4){
+      original(); 
+     }else if(turns === 5 && burns === 4){
+      correct1(); 
+     }else if(turns === 6 && burns === 4){
+      correct2(); 
+     }else if(turns === 7 && burns === 4){ //-------------------winner
+      score++; 
+      correct3(); 
+      input.placeholder = score; 
+      game2(); 
+     }   
+  }else{ 
+    burns += 1; 
+     if(burns === 1 && turns === 0){
+      loss();  
+    }else if ( burns === 2 && turns === 0){
+      loss2(); 
+    }else if(burns === 3 && turns === 0){ //-----------loser
+      loss3();
+      input.placeholder = "You're as Intuitive as a Toaster"; 
+    }else if(burns === 1 && turns === 1){
+      original(); 
+    }else if(burns === 2 && turns === 1){
+      loss(); 
+    }else if(burns === 3 && turns === 1){
+      loss2(); 
+    }else if(burns === 4 && turns === 1){  //--------------loser
+      loss3(); 
+      input.placeholder = "Pretty Unimpressive, My Friend";
+    }else if(burns === 1 && turns === 2){
+     correct1(); 
+    }else if(burns === 2 && turns === 2){
+      original(); 
+    }else if(burns === 3 && turns === 2){
+      loss(); 
+    }else if(burns === 4 && turns === 2){
+      loss2();
+    }else if(burns === 5 && turns === 2){  //--------------loser
+      loss3(); 
+      input.placeholder = "Hyper Loser";
+    }else if(burns === 2 && turns === 3){
+      correct1(); 
+    }else if(burns === 3 && turns === 3){
+      original(); 
+    }else if(burns === 4 && turns === 3){
+     loss(); 
+    }else if(burns === 5 && turns === 3){
+     loss2(); 
+    }else if(burns === 6 && turns === 3){  //--------------loser
+     loss3(); 
+     input.placeholder = "Not Bad. Not Good Either"; 
+    }else if(burns === 2 && turns === 4){
+     correct2(); 
+    }else if(burns === 3 && turns === 4){
+     correct1(); 
+    }else if(burns === 4 && turns === 4){
+     original(); 
+    }else if(burns === 5 && turns === 4){
+     loss(); 
+    }else if(burns === 6 && turns === 4){
+     loss2(); 
+    }else if(burns === 7 && turns === 4){
+     loss3(); 
+     input.placeholder = "Ya Faught Hard, Kid!"; 
+    }
+     else{
+      loss3(); 
+      input.placeholder = "This is painful to watch"; 
+     };
+  } 
+ }; 
+
+
+restart.addEventListener("click", function(){
+ turns = 0; 
+ burns = 0; 
+ score = 0; 
+ original(); 
+ header.textContent = "Hyper Prism"; 
+ input.placeholder = "Enter Guess"; 
+ choice1.style.background = "black";
+ choice1.style.borderColor = "green";
+ choice2.style.background = "black";
+ choice2.style.borderColor = "green";  
+ choice3.style.background = "black"; 
+ choice3.style.borderColor = "green";  
+});
+ 
+
+
+nextRound.addEventListener("click", function(){
+triangle.style.opacity = "1";  
+triangle.style.animationIterationCount = "infinite"; 
+original();
+this.style.opacity = "0"; 
+this.style.transition = "2s"; 
+header.textContent = "Round 2"; 
+header.style.transition = "1s"; 
+turns = 0;
+burns = 0; 
+input.placeholder = score; 
+}); 
