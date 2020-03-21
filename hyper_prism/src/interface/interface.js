@@ -2,25 +2,29 @@ import React from 'react'
 import '../styles/interface.css'
 
 export default class Interface extends React.Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
-            button1: '1',
-            button2: '2',
-            button3: '3'
+            button1: {clicked: false, number: 1, name: 'button1'},
+            button2: {clicked: false, number: 2, name: 'button2'},
+            button3: {clicked: false, number: 3, name: 'button3'}
         }
     }
 
-    buttonHandler = event => {
-        console.log(event.value)
-    }   
-
-    submitHandler = () => {
-
+    buttonHandler = (e)  => {
+        for(let item in this.state){
+           if(item !== e.name){
+               console.log(item)
+               this.setState({
+                   [item]: {clicked: false},
+               })
+           }   
+        }
+     console.log(e)
     }
 
     render(){
-        console.log(this.state.button1)
+        console.log(this.state)
 
         return(
             <div>
@@ -30,20 +34,20 @@ export default class Interface extends React.Component{
                     <div class="triangle"></div> 
                 </div> 
                 <div className='controls-container'> 
-                    <div class = "numbers"> 
-                        <div>
-                            <h1 class="choice1">I</h1>
+                    <div class="numbers"> 
+                        <div onClick={this.buttonHandler.bind(this, this.state.button1)}>
+                            <h1 className="choice1 button1">I</h1>
                         </div> 
-                        <div> 
-                            <h1 class="choice1" value='1'>II</h1>
+                        <div onClick={this.buttonHandler.bind(this, this.state.button2)}> 
+                            <h1 class="choice1 button2" >II</h1>
                         </div> 
-                        <div> 
-                            <h1 class="choice1">III</h1>
+                        <div onClick={this.buttonHandler.bind(this, this.state.button3)}> 
+                            <h1 class="choice1 button3">III</h1>
                         </div> 
                     </div>  
                     <div class ="controls">
                         <button class = "restart">Restart</button>
-                        <button onClick = "submit();">Submit</button>
+                        <button type='submit' onClick={this.submitHandler}>Submit</button>
                     </div>
                 </div>   
                 <div class= "round2">Begin Next Round</div> 

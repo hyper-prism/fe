@@ -61,6 +61,7 @@ button{
     position: absolute;
     bottom: 0px;
     width: 100%; 
+    background: white; 
 }
 
 .numbers{
@@ -88,6 +89,8 @@ button{
     margin-bottom:0px; 
 }
 
+
+
 .numbers h1{
     font-size: 35px; 
     font-weight: 100; 
@@ -106,4 +109,8 @@ button{
     padding: 10px; 
     transform: translate(0px, -380px); 
     opacity: 0; 
+}
+
+.activate-button{
+    background: green
 }
