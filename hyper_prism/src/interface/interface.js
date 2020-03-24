@@ -8,7 +8,9 @@ export default class Interface extends React.Component{
             nums: {
                 button1: {number: 1, name: 'button1'},
                 button2: {number: 2, name: 'button2'},
-                button3: {number: 3, name: 'button3'},}
+                button3: {number: 3, name: 'button3'},
+            },
+            score: 0
             }
     }
 
@@ -21,11 +23,20 @@ export default class Interface extends React.Component{
             document.querySelector(`.${e.name}`).style.background = 'green'
             selectedNum = e.number            
         }
-        this.submitHandler(selectedNum)
+        this.submitHandler(selectedNum, this.state.score)
     }
 
-    submitHandler = (num) => {
-        console.log(num)
+    submitHandler = (num, score) => {
+        let random = Math.floor(Math.random() * 3) + 1; 
+        if(random === num){
+            this.setState({
+                score: score +=1
+            }) 
+        } else if(num !== random){
+            this.setState({
+                score: score -=1
+            })
+        }
     }
 
     render(){
