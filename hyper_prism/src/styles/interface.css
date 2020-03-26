@@ -114,3 +114,17 @@ button{
 .activate-button{
     background: green
 }
+
+.correct-1{
+    border-bottom: "150px solid teal";
+    border-left: "75px solid transparent";
+    border-right: "75px solid transparent";
+    transition:  "3s";
+}
+
+.wrong-1{
+    border-bottom: "50px solid teal";
+    border-left: "25px solid transparent";
+    border-right: "25px solid transparent";
+    transition:  "3s";
+}
