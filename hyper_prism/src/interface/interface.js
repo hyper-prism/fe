@@ -29,35 +29,36 @@ export default class Interface extends React.Component{
 
     submitHandler = (num, score) => {
         let random = Math.floor(Math.random() * 3) + 1; 
-        console.log(random)
+
         if(random === num){
-            score = score + 1
-            turns = turns + 1
-            if(score === 1){
-                this.updatePrism('150px', 'blue', '100px', '100px')
-            } else if(score === 2){
-                this.updatePrism('150px', 'blue', '100px', '100px')
-            } else if(score === 3){
-                this.updatePrism('150px', 'blue', '100px', '100px')            } 
-            this.setState({
-                score: score,
-                turns: turns
-            })
-
-        } else if(num !== random){
+            score = score += 1
+        } else if(random !== num){
             score = score -= 1
-            if(score === -1){
-                this.updatePrism('150px', 'blue', '100', '100')
-
-            } else if(this.state.score === -2){
-                document.querySelector('.triangle').style.background = 'blue'
-            } else if(this.state.score === -3){
-                document.querySelector('.triangle').classList.add('wrong-3')
-            } 
-            this.setState({
-                score: score
-            })
         }
+        this.prismHandler(score)
+
+        this.setState({
+            score: score,
+            turns: this.state.turns + 1
+        })
+    }
+
+    prismHandler = (score) => {
+        if(score === 0){
+            this.updatePrism('100px', 'green', '50px')
+        } else if(score === 1){
+            this.updatePrism('150px', 'teal', '75px')
+        } else if(score === 2){
+            this.updatePrism('200px', 'white', '100px')
+        } else if(score === 3){
+            this.winLossHandler('400px', 'white', '200px', true)            
+        } else if(score === -1){
+            this.updatePrism('50px', 'maroon', '25px')
+        } else if(score === -2){
+            this.updatePrism('24px', 'purple', '12px')
+        } else if(score === -3){
+            this.winLossHandler('12px', 'black', '6px', false)
+        } 
     }
 
     updatePrism = (bb, color, borderLR,) => {
@@ -68,9 +69,24 @@ export default class Interface extends React.Component{
         prism.style.transition = "3s";
     }
 
-    render(){        
-console.log(this.state.score)
+    winLossHandler = (bb, color, borderLR, result ) => {
+        let prism = document.querySelector('.triangle')
+        prism.style.borderBottom = `${bb} solid ${color}`;
+        prism.style.borderLeft = `${borderLR} solid transparent`;
+        prism.style.borderRight = `${borderLR} solid transparent`;
+        prism.style.transition = "6s";
+        prism.style.opacity = "0";
 
+        if(result){
+            console.log('winner')
+        } else {
+            console.log('loser')
+        }
+    }
+
+
+    render(){        
+        console.log(this.state.score)
         return(
             <div>
                 <h1 class="header">Hyper Prism</h1>
