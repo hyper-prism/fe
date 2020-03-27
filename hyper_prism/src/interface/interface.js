@@ -55,11 +55,11 @@ export default class Interface extends React.Component{
     prismHandler = (counter) => {
         if(counter === 0){
             this.updatePrism('100px', 'green', '50px')
-        } else if(counter === 3){
+        } else if(counter === 1){
             this.updatePrism('150px', 'teal', '75px')
         } else if(counter === 2){
             this.updatePrism('200px', 'white', '100px')
-        } else if(counter === 1){
+        } else if(counter === 3){
             this.winLossHandler('400px', 'white', '200px', true, this.state.turns) 
             document.querySelector('.triangle').style.animationIterationCount = 0           
         } else if(counter === -1){
@@ -150,8 +150,6 @@ export default class Interface extends React.Component{
     playAgain = () => {
         document.querySelector('.playAgain').style.opacity = '1'      
         document.querySelector('.playAgain').style.transform = 'translate(0px, 0px)'
-        document.querySelector('.playAgain').style.transition = '6s'      
-
     }
 
     
