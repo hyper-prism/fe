@@ -36,30 +36,27 @@ export default class Interface extends React.Component{
         } else if(random !== num){
             counter = counter -= 1
         }
+
         this.prismHandler(counter)
 
-        if(this.state.turns <= 1){
+      
             this.setState({
-                turns: 1,
-                counter: counter
+                counter: counter,
+                turns: this.state.turns - 1
             })
-        } else {
-        this.setState({
-            counter: counter,
-            turns: this.state.turns - 1
-        })
-    }
+        
     }
 
     prismHandler = (counter) => {
         if(counter === 0){
             this.updatePrism('100px', 'green', '50px')
-        } else if(counter === 1){
+        } else if(counter === 3){
             this.updatePrism('150px', 'teal', '75px')
         } else if(counter === 2){
             this.updatePrism('200px', 'white', '100px')
-        } else if(counter === 3){
-            this.winLossHandler('400px', 'white', '200px', true, this.state.turns)            
+        } else if(counter === 1){
+            this.winLossHandler('400px', 'white', '200px', true, this.state.turns) 
+            document.querySelector('.triangle').style.animationIterationCount = 0           
         } else if(counter === -1){
             this.updatePrism('50px', 'maroon', '25px')
         } else if(counter === -2){
@@ -85,13 +82,13 @@ export default class Interface extends React.Component{
         prism.style.transition = "6s";
         prism.style.opacity = "0";
 
-        if(result){
+        if(result === true){
             this.setState({
                 turns: 10,
                 counter: 0,
                 score: sum - 1
-            })
-            this.prismHandler(this.state.counter)    
+            })    
+            this.nextRoundButton()
         } else {
             this.setState({
                 score: 0,
@@ -101,12 +98,14 @@ export default class Interface extends React.Component{
         }
     }
 
-    restartHandler = () => {
+    restartHandler = (result) => {
+
         this.setState({
             score: 0,
             turns: 10,
             counter: 0
         })
+        
         let prism = document.querySelector('.triangle')
         prism.style.borderBottom = "100px solid green";
         prism.style.borderLeft = "50px solid transparent";
@@ -115,6 +114,16 @@ export default class Interface extends React.Component{
         prism.style.opacity = "1";
     }
 
+
+    nextRoundButton = () => {
+        document.querySelector('.nextRound').style.transform = "translate(0px, 0px)"
+
+    }
+    nextRound = () => {
+        console.log('active')
+
+
+    }
 
     render(){        
         console.log("COUNTER: ",this.state.counter)
@@ -125,11 +134,15 @@ export default class Interface extends React.Component{
                 <h1 class="header">Hyper Prism</h1>
                 <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
                 <div class="container">
-                <span className="span-container"> 
+                    <span className="span-container"> 
                         <span> Anonymous </span>
                         <span style={{color: "white"}}>Score: {this.state.score} </span> 
                     </span>
                     <div className="triangle"></div> 
+
+                </div> 
+                <div className='nextRound-container'> 
+                    <p className='nextRound' onClick={this.nextRound}>Begin Next Round</p>
                 </div> 
                 <div className='controls-container'> 
 

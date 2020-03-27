@@ -270,3 +270,15 @@ turns = 0;
 burns = 0; 
 input.placeholder = score; 
 }); 
+
+
+triangle.style.opacity = "1";  
+triangle.style.animationIterationCount = "infinite"; 
+original();
+this.style.opacity = "0"; 
+this.style.transition = "2s"; 
+header.textContent = "Round 2"; 
+header.style.transition = "1s"; 
+turns = 0;
+burns = 0; 
+input.placeholder = score; 
