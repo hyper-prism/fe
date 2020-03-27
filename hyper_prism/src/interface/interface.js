@@ -87,12 +87,11 @@ export default class Interface extends React.Component{
 
         if(result){
             this.setState({
-                turns: 0,
+                turns: 10,
                 counter: 0,
                 score: sum - 1
             })
-      
-            
+            this.prismHandler(this.state.counter)    
         } else {
             this.setState({
                 score: 0,
@@ -100,6 +99,20 @@ export default class Interface extends React.Component{
                 counter: 0
             })
         }
+    }
+
+    restartHandler = () => {
+        this.setState({
+            score: 0,
+            turns: 10,
+            counter: 0
+        })
+        let prism = document.querySelector('.triangle')
+        prism.style.borderBottom = "100px solid green";
+        prism.style.borderLeft = "50px solid transparent";
+        prism.style.borderRight = "50px solid transparent";
+        prism.style.transition = "3s";
+        prism.style.opacity = "1";
     }
 
 
@@ -132,7 +145,7 @@ export default class Interface extends React.Component{
                         </div> 
                     </div>  
                     <div class ="controls">
-                        <div class = "restart">Restart</div>
+                        <div onClick={this.restartHandler} class = "restart">Restart</div>
                         <div type='submit'>Menu</div>
                     </div>
                 </div>   
