@@ -15,16 +15,17 @@ button{
     background-color: green; 
 }
 
-.controls button{
+.controls div{
     display: flex; 
     justify-content: center; 
-    width: 50%; 
+    width: 49%; 
     border-color: green; 
     background-color: green; 
+    border: 1px solid darkgreen;
     text-align: center; 
     color: white; 
     font-weight: 100; 
-    padding: 10px; 
+    padding: 13px 0px; 
     font-size: 15px;
     font-weight: 100;
     letter-spacing: 1.2px;
@@ -41,17 +42,17 @@ button{
     border-right: 50px solid transparent;
     border-bottom: 100px solid green; 
     animation-name: triangles; 
-    animation-duration: 5s;
-    margin-top: 38%;
+    animation-duration: 40s;
     position: absolute; 
     animation-iteration-count: infinite;  
     animation-timing-function: linear; 
+    top: 40%; 
 }
 
 
 @keyframes triangles {
     0%{
-        transform: rotate(999900deg);  
+        transform: rotate(999999deg);  
     }100%{
         color: green; 
     } 
@@ -112,5 +113,21 @@ button{
 }
 
 .activate-button{
-    background: green
+    background: green;
+    transition: 3s;
 }
+
+.container span{
+    font-size: 14px; 
+    font-weight: 700; 
+    color: white; 
+}
+
+.span-container{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    width: 90%; 
+}
+
+

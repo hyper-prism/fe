@@ -83,61 +83,12 @@ var burns = 0;
 var selector = 0; 
 var score = 0; 
 var numbers = document.querySelector(".numbers"); 
-var choice1 = document.querySelector(".choice1");
-var choice2 = document.querySelector(".choice2");
-var choice3 = document.querySelector(".choice3");
+
 var nextRound = document.querySelector(".round2"); 
 
-var original = function (){
-triangle.style.borderBottom = "100px solid green";
-triangle.style.borderLeft = "50px solid transparent";
-triangle.style.borderRight = "50px solid transparent";
-triangle.style.transition = "3s";
-}
 
 
-var correct1 = function() {
-triangle.style.borderBottom = "150px solid teal";
-triangle.style.borderLeft = "75px solid transparent";
-triangle.style.borderRight = "75px solid transparent";
-triangle.style.transition = "3s";
-};
 
-var correct2 = function() {
-triangle.style.borderBottom = "200px solid white";
-triangle.style.borderLeft = "100px solid transparent";
-triangle.style.borderRight = "100px solid transparent";
-triangle.style.transition = "3s";
-};
-
-var correct3 = function() {
-triangle.style.borderBottom = "400px solid white";
-triangle.style.borderLeft = "200px solid transparent";
-triangle.style.borderRight = "200px solid transparent";
-triangle.style.transition = "6s"
-triangle.style.opacity = "0"; 
-};
-
-var loss = function(){
-triangle.style.borderBottom = "50px solid maroon";
-triangle.style.borderLeft = "25px solid transparent";
-triangle.style.borderRight = "25px solid transparent";
-triangle.style.transition = "3s";
-};
-
-var loss2 = function(){
-triangle.style.borderBottom = "24px solid purple";
-triangle.style.borderLeft = "12px solid transparent";
-triangle.style.borderRight = "12px solid transparent";
-triangle.style.transition = "3s";
-}
-
-var loss3 = function(){
-triangle.style.borderBottom = "12px solid black";
-triangle.style.borderLeft = "6px solid transparent";
-triangle.style.borderRight = "6px solid transparent";
-triangle.style.transition = "3s";
-}
 
 var game2 = function(){
   triangle.style.animationIterationCount = 0; 

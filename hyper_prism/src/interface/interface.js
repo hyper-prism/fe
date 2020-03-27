@@ -11,7 +11,8 @@ export default class Interface extends React.Component{
                 button3: {number: 3, name: 'button3'},
             },
             score: 0, 
-            turns: 0
+            turns: 10,
+            counter: 0
             }
     }
 
@@ -24,40 +25,47 @@ export default class Interface extends React.Component{
             document.querySelector(`.${e.name}`).style.background = 'green'
             selectedNum = e.number            
         }
-        this.submitHandler(selectedNum, this.state.score)
+        this.submitHandler(selectedNum, this.state.counter)
     }
 
-    submitHandler = (num, score) => {
+    submitHandler = (num, counter) => {
         let random = Math.floor(Math.random() * 3) + 1; 
-
+        
         if(random === num){
-            score = score += 1
+            counter = counter += 1
         } else if(random !== num){
-            score = score -= 1
+            counter = counter -= 1
         }
-        this.prismHandler(score)
+        this.prismHandler(counter)
 
+        if(this.state.turns <= 1){
+            this.setState({
+                turns: 1,
+                counter: counter
+            })
+        } else {
         this.setState({
-            score: score,
-            turns: this.state.turns + 1
+            counter: counter,
+            turns: this.state.turns - 1
         })
     }
+    }
 
-    prismHandler = (score) => {
-        if(score === 0){
+    prismHandler = (counter) => {
+        if(counter === 0){
             this.updatePrism('100px', 'green', '50px')
-        } else if(score === 1){
+        } else if(counter === 1){
             this.updatePrism('150px', 'teal', '75px')
-        } else if(score === 2){
+        } else if(counter === 2){
             this.updatePrism('200px', 'white', '100px')
-        } else if(score === 3){
-            this.winLossHandler('400px', 'white', '200px', true)            
-        } else if(score === -1){
+        } else if(counter === 3){
+            this.winLossHandler('400px', 'white', '200px', true, this.state.turns)            
+        } else if(counter === -1){
             this.updatePrism('50px', 'maroon', '25px')
-        } else if(score === -2){
+        } else if(counter === -2){
             this.updatePrism('24px', 'purple', '12px')
-        } else if(score === -3){
-            this.winLossHandler('12px', 'black', '6px', false)
+        } else if(counter === -3){
+            this.winLossHandler('12px', 'black', '6px', false, this.state.turns)
         } 
     }
 
@@ -69,7 +77,7 @@ export default class Interface extends React.Component{
         prism.style.transition = "3s";
     }
 
-    winLossHandler = (bb, color, borderLR, result ) => {
+    winLossHandler = (bb, color, borderLR, result, sum) => {
         let prism = document.querySelector('.triangle')
         prism.style.borderBottom = `${bb} solid ${color}`;
         prism.style.borderLeft = `${borderLR} solid transparent`;
@@ -78,23 +86,40 @@ export default class Interface extends React.Component{
         prism.style.opacity = "0";
 
         if(result){
-            console.log('winner')
+            this.setState({
+                turns: 0,
+                counter: 0,
+                score: sum - 1
+            })
+      
+            
         } else {
-            console.log('loser')
+            this.setState({
+                score: 0,
+                turns: 0,
+                counter: 0
+            })
         }
     }
 
 
     render(){        
-        console.log(this.state.score)
+        console.log("COUNTER: ",this.state.counter)
+        console.log("SCORE: ",this.state.score)
+        console.log("TURNS: ", this.state.turns)
         return(
             <div>
                 <h1 class="header">Hyper Prism</h1>
                 <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
                 <div class="container">
+                <span className="span-container"> 
+                        <span> Anonymous </span>
+                        <span style={{color: "white"}}>Score: {this.state.score} </span> 
+                    </span>
                     <div className="triangle"></div> 
                 </div> 
                 <div className='controls-container'> 
+
                     <div class="numbers"> 
                         <div onClick={this.buttonHandler.bind(this, this.state.nums.button1)}>
                             <h1 className="choice1 button1">I</h1>
@@ -107,8 +132,8 @@ export default class Interface extends React.Component{
                         </div> 
                     </div>  
                     <div class ="controls">
-                        <button class = "restart">Restart</button>
-                        <button type='submit' onClick={this.submitHandler}>Submit</button>
+                        <div class = "restart">Restart</div>
+                        <div type='submit'>Menu</div>
                     </div>
                 </div>   
                 <div class= "round2">Begin Next Round</div> 
