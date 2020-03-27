@@ -133,12 +133,11 @@ button{
 .nextRound{
     border: 1px solid darkGreen;
     color: white; 
-    transform: translate(-1000px, 0px);
-    opacity: 1;
     transition: 3s;
     padding: 10px; 
     position: absolute;
     top: 40%;
+    opacity: 0; 
 }
 
 .nextRound-container{
@@ -147,3 +146,18 @@ button{
     justify-content: center; 
 }
 
+.playAgain{
+    border: 1px solid darkGreen;
+    color: white; 
+    opacity: 0;
+    transition: 3s;
+    padding: 10px; 
+    position: absolute;
+    top: 40%;
+}
+
+.playAgain-container{
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+}

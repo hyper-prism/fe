@@ -39,22 +39,27 @@ export default class Interface extends React.Component{
 
         this.prismHandler(counter)
 
-      
+        if(this.state.turns <= 1){
+            this.setState({
+                counter: counter,
+                turns: 1
+            })
+        } else {
             this.setState({
                 counter: counter,
                 turns: this.state.turns - 1
             })
-        
+        }
     }
 
     prismHandler = (counter) => {
         if(counter === 0){
             this.updatePrism('100px', 'green', '50px')
-        } else if(counter === 1){
+        } else if(counter === 3){
             this.updatePrism('150px', 'teal', '75px')
         } else if(counter === 2){
             this.updatePrism('200px', 'white', '100px')
-        } else if(counter === 3){
+        } else if(counter === 1){
             this.winLossHandler('400px', 'white', '200px', true, this.state.turns) 
             document.querySelector('.triangle').style.animationIterationCount = 0           
         } else if(counter === -1){
@@ -95,6 +100,7 @@ export default class Interface extends React.Component{
                 turns: 0,
                 counter: 0
             })
+            this.playAgain()
         }
     }
 
@@ -106,6 +112,9 @@ export default class Interface extends React.Component{
             counter: 0
         })
         
+        document.querySelector('.playAgain').style.opacity = '0'
+        document.querySelector('.playAgain').style.transform = 'translate(-1000px, 0px)'
+
         let prism = document.querySelector('.triangle')
         prism.style.borderBottom = "100px solid green";
         prism.style.borderLeft = "50px solid transparent";
@@ -136,8 +145,16 @@ export default class Interface extends React.Component{
         prism.style.animationIterationCount = 'infinite'
         document.querySelector('.nextRound').style.opacity = '0'
         document.querySelector('.nextRound').style.transition = '3s'
+    }
+
+    playAgain = () => {
+        document.querySelector('.playAgain').style.opacity = '1'      
+        document.querySelector('.playAgain').style.transform = 'translate(0px, 0px)'
+        document.querySelector('.playAgain').style.transition = '6s'      
 
     }
+
+    
 
     render(){        
         console.log("COUNTER: ",this.state.counter)
@@ -157,6 +174,9 @@ export default class Interface extends React.Component{
                 </div> 
                 <div className='nextRound-container'> 
                     <p className='nextRound' onClick={this.nextRound}>Begin Next Round</p>
+                </div> 
+                <div className='playAgain-container'> 
+                    <p className='playAgain' onClick={this.restartHandler}>Try Again?</p>
                 </div> 
                 <div className='controls-container'> 
 
