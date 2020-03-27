@@ -134,6 +134,7 @@ button{
     border: 1px solid darkGreen;
     color: white; 
     transform: translate(-1000px, 0px);
+    opacity: 1;
     transition: 3s;
     padding: 10px; 
     position: absolute;
