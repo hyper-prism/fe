@@ -55,11 +55,11 @@ export default class Interface extends React.Component{
     prismHandler = (counter) => {
         if(counter === 0){
             this.updatePrism('100px', 'green', '50px')
-        } else if(counter === 1){
+        } else if(counter === 3){
             this.updatePrism('150px', 'teal', '75px')
         } else if(counter === 2){
             this.updatePrism('200px', 'white', '100px')
-        } else if(counter === 3){
+        } else if(counter === 1){
             this.winLossHandler('400px', 'white', '200px', true, this.state.turns) 
             document.querySelector('.triangle').style.animationIterationCount = 0           
         } else if(counter === -1){
@@ -94,6 +94,11 @@ export default class Interface extends React.Component{
                 score: this.state.score += sum - 1
             })    
             this.nextRoundButton()
+        } else if(result === false && this.state.score > 0){
+            document.querySelector('.points-board').style.transform = "translate(0px, 0px)"
+            document.querySelector('.points-board').style.opacity = "1"
+            document.querySelector('.points-board').style.transition = "3s"
+
         } else {
             this.setState({
                 score: 0,
@@ -103,6 +108,7 @@ export default class Interface extends React.Component{
             this.playAgain()
         }
     }
+
 
     restartHandler = () => {
 
@@ -114,6 +120,10 @@ export default class Interface extends React.Component{
         
         document.querySelector('.playAgain').style.opacity = '0'
         document.querySelector('.playAgain').style.transform = 'translate(-1000px, 0px)'
+
+        document.querySelector('.points-board').style.transform = "translate(-1000px, 0px)"
+        document.querySelector('.points-board').style.opacity = '0'
+        document.querySelector('.points-board').style.transition = "4s"
 
         let prism = document.querySelector('.triangle')
         prism.style.borderBottom = "100px solid green";
@@ -136,6 +146,7 @@ export default class Interface extends React.Component{
             counter: 0,
             score: this.state.score
         })
+
         let prism = document.querySelector('.triangle')
         prism.style.borderBottom = "100px solid green";
         prism.style.borderLeft = "50px solid transparent";
@@ -143,17 +154,17 @@ export default class Interface extends React.Component{
         prism.style.transition = "3s";
         prism.style.opacity = "1";
         prism.style.animationIterationCount = 'infinite'
+
         document.querySelector('.nextRound').style.opacity = '0'
         document.querySelector('.nextRound').style.transition = '3s'
     }
 
     playAgain = () => {
-        document.querySelector('.playAgain').style.opacity = '1'      
+        document.querySelector('.playAgain').style.opacity = '1'    
         document.querySelector('.playAgain').style.transform = 'translate(0px, 0px)'
     }
 
     
-
     render(){        
         console.log("COUNTER: ",this.state.counter)
         console.log("SCORE: ",this.state.score)
@@ -168,7 +179,12 @@ export default class Interface extends React.Component{
                         <span style={{color: "white"}}>Score: {this.state.score} </span> 
                     </span>
                     <div className="triangle"></div> 
-
+                </div> 
+                <div className='points-board'>
+                    <h2>Leader Board</h2>
+                    <p>example: 20pts</p>
+                    <p>example: 20pts</p>
+                    <p>example: 20pts</p>
                 </div> 
                 <div className='nextRound-container'> 
                     <p className='nextRound' onClick={this.nextRound}>Begin Next Round</p>
@@ -177,7 +193,6 @@ export default class Interface extends React.Component{
                     <p className='playAgain' onClick={this.restartHandler}>Try Again?</p>
                 </div> 
                 <div className='controls-container'> 
-
                     <div class="numbers"> 
                         <div onClick={this.buttonHandler.bind(this, this.state.nums.button1)}>
                             <h1 className="choice1 button1">I</h1>
