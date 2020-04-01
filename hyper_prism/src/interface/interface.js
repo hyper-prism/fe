@@ -88,6 +88,7 @@ export default class Interface extends React.Component{
         prism.style.opacity = "0";
 
         if(result === true){
+            
             this.setState({
                 turns: 10,
                 counter: 0,
@@ -98,7 +99,6 @@ export default class Interface extends React.Component{
             document.querySelector('.points-board').style.transform = "translate(0px, 0px)"
             document.querySelector('.points-board').style.opacity = "1"
             document.querySelector('.points-board').style.transition = "3s"
-
         } else {
             this.setState({
                 score: 0,
@@ -139,13 +139,16 @@ export default class Interface extends React.Component{
         document.querySelector('.nextRound').style.opacity = "1"
 
     }
-    nextRound = () => {
 
+    nextRound = () => {
         this.setState({
             turns: 10,
             counter: 0,
             score: this.state.score
         })
+
+        document.querySelector('.nextRound').style.opacity = '0'
+        document.querySelector('.nextRound').style.transition = '3s'        
 
         let prism = document.querySelector('.triangle')
         prism.style.borderBottom = "100px solid green";
@@ -182,9 +185,10 @@ export default class Interface extends React.Component{
                 </div> 
                 <div className='points-board'>
                     <h2>Leader Board</h2>
-                    <p>example: 20pts</p>
-                    <p>example: 20pts</p>
-                    <p>example: 20pts</p>
+                    <p>@benny: 20pts</p>
+                    <p>@larryJ: 10pts</p>
+                    <p>@jeffery: 7pts</p>
+                    <p className='points-board-restart' onClick={this.restartHandler}>Play Again?</p>
                 </div> 
                 <div className='nextRound-container'> 
                     <p className='nextRound' onClick={this.nextRound}>Begin Next Round</p>
