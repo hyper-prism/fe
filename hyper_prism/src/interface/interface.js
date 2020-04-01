@@ -12,7 +12,8 @@ export default class Interface extends React.Component{
             },
             score: 0, 
             turns: 10,
-            counter: 0
+            counter: 0,
+            attempts: 0
             }
     }
 
@@ -42,11 +43,13 @@ export default class Interface extends React.Component{
         if(this.state.turns <= 1){
             this.setState({
                 counter: counter,
+                attempts: this.state.attempts + 1,
                 turns: 1
             })
         } else {
             this.setState({
                 counter: counter,
+                attempts: this.state.attempts + 1,
                 turns: this.state.turns - 1
             })
         }
@@ -55,11 +58,11 @@ export default class Interface extends React.Component{
     prismHandler = (counter) => {
         if(counter === 0){
             this.updatePrism('100px', 'green', '50px')
-        } else if(counter === 3){
+        } else if(counter === 1){
             this.updatePrism('150px', 'teal', '75px')
         } else if(counter === 2){
             this.updatePrism('200px', 'white', '100px')
-        } else if(counter === 1){
+        } else if(counter === 3){
             this.winLossHandler('400px', 'white', '200px', true, this.state.turns) 
             document.querySelector('.triangle').style.animationIterationCount = 0           
         } else if(counter === -1){
@@ -87,8 +90,7 @@ export default class Interface extends React.Component{
         prism.style.transition = "6s";
         prism.style.opacity = "0";
 
-        if(result === true){
-            
+        if(result === true){ 
             this.setState({
                 turns: 10,
                 counter: 0,
@@ -103,19 +105,19 @@ export default class Interface extends React.Component{
             this.setState({
                 score: 0,
                 turns: 0,
-                counter: 0
+                counter: 0,
+                attempts: 0
             })
             this.playAgain()
         }
     }
 
-
     restartHandler = () => {
-
         this.setState({
             score: 0,
             turns: 10,
-            counter: 0
+            counter: 0,
+            attempts: 0
         })
         
         document.querySelector('.playAgain').style.opacity = '0'
@@ -125,19 +127,22 @@ export default class Interface extends React.Component{
         document.querySelector('.points-board').style.opacity = '0'
         document.querySelector('.points-board').style.transition = "4s"
 
+        this.defaultPrism()
+    }
+
+    defaultPrism = () => {
         let prism = document.querySelector('.triangle')
         prism.style.borderBottom = "100px solid green";
         prism.style.borderLeft = "50px solid transparent";
         prism.style.borderRight = "50px solid transparent";
         prism.style.transition = "3s";
         prism.style.opacity = "1";
+        prism.style.animationIterationCount = 'infinite'
     }
-
 
     nextRoundButton = () => {
         document.querySelector('.nextRound').style.transform = "translate(0px, 0px)"
         document.querySelector('.nextRound').style.opacity = "1"
-
     }
 
     nextRound = () => {
@@ -146,20 +151,10 @@ export default class Interface extends React.Component{
             counter: 0,
             score: this.state.score
         })
-
         document.querySelector('.nextRound').style.opacity = '0'
         document.querySelector('.nextRound').style.transition = '3s'        
 
-        let prism = document.querySelector('.triangle')
-        prism.style.borderBottom = "100px solid green";
-        prism.style.borderLeft = "50px solid transparent";
-        prism.style.borderRight = "50px solid transparent";
-        prism.style.transition = "3s";
-        prism.style.opacity = "1";
-        prism.style.animationIterationCount = 'infinite'
-
-        document.querySelector('.nextRound').style.opacity = '0'
-        document.querySelector('.nextRound').style.transition = '3s'
+        this.defaultPrism()
     }
 
     playAgain = () => {
@@ -172,13 +167,14 @@ export default class Interface extends React.Component{
         console.log("COUNTER: ",this.state.counter)
         console.log("SCORE: ",this.state.score)
         console.log("TURNS: ", this.state.turns)
+        console.log("ATTEMPTS", this.state.attempts)
         return(
             <div>
                 <h1 class="header">Hyper Prism</h1>
                 <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
                 <div class="container">
                     <span className="span-container"> 
-                        <span> Anonymous </span>
+                        <span> @anon</span>
                         <span style={{color: "white"}}>Score: {this.state.score} </span> 
                     </span>
                     <div className="triangle"></div> 
