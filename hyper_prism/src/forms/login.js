@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Register extends React.Component{
+export default class Login extends React.Component{
     constructor(){
         super()
         this.state = {
@@ -13,7 +13,7 @@ export default class Register extends React.Component{
     
     render(){
         return(
-            <div>REGISTER</div>
+            <div>Login</div>
         )
     }
 }
