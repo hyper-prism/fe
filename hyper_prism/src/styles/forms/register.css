@@ -1,0 +1,9 @@
+form{
+    background: white; 
+}
+
+form input{
+    border-right: 0px solid black;
+    border-left: 0px solid black;
+    border-top: 0px solid black; 
+}
