@@ -58,11 +58,11 @@ export default class Interface extends React.Component{
     prismHandler = (counter) => {
         if(counter === 0){
             this.updatePrism('100px', 'green', '50px')
-        } else if(counter === 1){
+        } else if(counter === 3){
             this.updatePrism('150px', 'teal', '75px')
         } else if(counter === 2){
             this.updatePrism('200px', 'white', '100px')
-        } else if(counter === 3){
+        } else if(counter === 1){
             this.winLossHandler('400px', 'white', '200px', true, this.state.turns) 
             document.querySelector('.triangle').style.animationIterationCount = 0           
         } else if(counter === -1){
@@ -170,9 +170,9 @@ export default class Interface extends React.Component{
         console.log("ATTEMPTS", this.state.attempts)
         return(
             <div>
-                <h1 class="header">Hyper Prism</h1>
+                <h1 className="header">Hyper Prism</h1>
                 <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
-                <div class="container">
+                <div className="container">
                     <span className="span-container"> 
                         <span> @anon</span>
                         <span style={{color: "white"}}>Score: {this.state.score} </span> 
@@ -193,23 +193,23 @@ export default class Interface extends React.Component{
                     <p className='playAgain' onClick={this.restartHandler}>Try Again?</p>
                 </div> 
                 <div className='controls-container'> 
-                    <div class="numbers"> 
+                    <div className="numbers"> 
                         <div onClick={this.buttonHandler.bind(this, this.state.nums.button1)}>
                             <h1 className="choice1 button1">I</h1>
                         </div> 
                         <div onClick={this.buttonHandler.bind(this, this.state.nums.button2)}> 
-                            <h1 class="choice1 button2" >II</h1>
+                            <h1 className="choice1 button2" >II</h1>
                         </div> 
                         <div onClick={this.buttonHandler.bind(this, this.state.nums.button3)}> 
-                            <h1 class="choice1 button3">III</h1>
+                            <h1 className="choice1 button3">III</h1>
                         </div> 
                     </div>  
-                    <div class ="controls">
+                    <div className="controls">
                         <div onClick={this.restartHandler} class = "restart">Restart</div>
                         <div type='submit'>Menu</div>
                     </div>
                 </div>   
-                <div class= "round2">Begin Next Round</div> 
+                <div className="round2">Begin Next Round</div> 
             </div> 
         )
     }
