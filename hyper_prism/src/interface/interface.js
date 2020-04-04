@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import '../styles/interface.css'
 
 export default class Interface extends React.Component{
@@ -162,12 +163,15 @@ export default class Interface extends React.Component{
         document.querySelector('.playAgain').style.transform = 'translate(0px, 0px)'
     }
 
+ 
+
     
     render(){        
         console.log("COUNTER: ",this.state.counter)
         console.log("SCORE: ",this.state.score)
         console.log("TURNS: ", this.state.turns)
         console.log("ATTEMPTS", this.state.attempts)
+        console.log("B", this.props.userInfo)
         return(
             <div>
                 <h1 className="header">Hyper Prism</h1>
