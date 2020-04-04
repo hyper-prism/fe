@@ -36,7 +36,6 @@ componentDidMount(){
 
    
     render(){
-        console.log('A: ', this.state)
         return (
             <div>
                 <Route exact path = '/' render={props => (

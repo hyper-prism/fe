@@ -99,6 +99,7 @@ export default class Interface extends React.Component{
             })    
             this.nextRoundButton()
         } else if(result === false && this.state.score > 0){
+            this.postStats()
             document.querySelector('.points-board').style.transform = "translate(0px, 0px)"
             document.querySelector('.points-board').style.opacity = "1"
             document.querySelector('.points-board').style.transition = "3s"
@@ -163,6 +164,29 @@ export default class Interface extends React.Component{
         document.querySelector('.playAgain').style.transform = 'translate(0px, 0px)'
     }
 
+
+    postStats = () => {
+
+        let userStats = {
+            user_id: this.props.userInfo.userID,
+            score: this.state.score,
+            rounds: 1,
+            turns: this.state.turns,
+            awards: 'No Awards',
+            date: '1/20/22',
+            rank: '1st place'
+        }
+
+        console.log(userStats)
+
+        axios.post(`https://hyper-prism.herokuapp.com/api/userStats`, userStats)
+            .then(response => {
+                console.log(response)
+        })
+        .catch(error => {
+            console.log("There was an error posting your stats", error)
+        })
+    }
  
 
     
