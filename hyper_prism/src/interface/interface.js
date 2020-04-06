@@ -99,10 +99,7 @@ export default class Interface extends React.Component{
             })    
             this.nextRoundButton()
         } else if(result === false && this.state.score > 0){
-            this.postStats()
-            document.querySelector('.points-board').style.transform = "translate(0px, 0px)"
-            document.querySelector('.points-board').style.opacity = "1"
-            document.querySelector('.points-board').style.transition = "3s"
+            this.checkScore()
         } else {
             this.setState({
                 score: 0,
@@ -172,14 +169,14 @@ export default class Interface extends React.Component{
             score: this.state.score,
             rounds: 1,
             turns: this.state.turns,
-            awards: 'No Awards',
+            awards: 'NEW',
             date: '1/20/22',
             rank: '1st place'
         }
 
         console.log(userStats)
 
-        axios.post(`${process.env.REACT_APP_USERSTATS}`, userStats)
+        axios.post(process.env.REACT_APP_USERSTATS, userStats)
             .then(response => {
                 console.log(response)
         })
@@ -189,6 +186,20 @@ export default class Interface extends React.Component{
     }
  
 
+    checkScore = () => {
+        let isLeader = false; 
+        this.props.leaderBoard.map(item => {
+            if(this.state.score > item.score){
+                isLeader = true
+            }
+        })
+        if(isLeader === true){
+            this.postStats()
+        } 
+        document.querySelector('.points-board').style.transform = "translate(0px, 0px)"
+        document.querySelector('.points-board').style.opacity = "1"
+        document.querySelector('.points-board').style.transition = "3s"
+    }
     
     render(){      
         //console.log("COUNTER: ",this.state.counter)
@@ -208,9 +219,9 @@ export default class Interface extends React.Component{
                 </div> 
                 <div className='points-board'>
                     <h2>Leader Board</h2>
-                    {this.props.leaderBoard.map((item, key) => (
-                        <p>@john: {item.score}</p> 
-                    ))}
+                        {this.props.leaderBoard.reverse().map((item, key) => (
+                            key <= 3 ? <p>{key}: @john: {item.score}</p> : ''
+                        ))}
                     <p className='points-board-restart' onClick={this.restartHandler}>Play Again?</p>
                 </div> 
                 <div className='nextRound-container'> 
