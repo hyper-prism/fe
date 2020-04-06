@@ -179,7 +179,7 @@ export default class Interface extends React.Component{
 
         console.log(userStats)
 
-        axios.post(`https://hyper-prism.herokuapp.com/api/userStats`, userStats)
+        axios.post(`${process.env.REACT_APP_USERSTATS}`, userStats)
             .then(response => {
                 console.log(response)
         })
@@ -190,12 +190,11 @@ export default class Interface extends React.Component{
  
 
     
-    render(){        
-        console.log("COUNTER: ",this.state.counter)
-        console.log("SCORE: ",this.state.score)
-        console.log("TURNS: ", this.state.turns)
-        console.log("ATTEMPTS", this.state.attempts)
-        console.log("B", this.props.userInfo)
+    render(){      
+        //console.log("COUNTER: ",this.state.counter)
+        //console.log("SCORE: ",this.state.score)
+        //console.log("TURNS: ", this.state.turns)
+        //console.log("ATTEMPTS", this.state.attempts)
         return(
             <div>
                 <h1 className="header">Hyper Prism</h1>
@@ -209,9 +208,9 @@ export default class Interface extends React.Component{
                 </div> 
                 <div className='points-board'>
                     <h2>Leader Board</h2>
-                    <p>@benny: 20pts</p>
-                    <p>@larryJ: 10pts</p>
-                    <p>@jeffery: 7pts</p>
+                    {this.props.leaderBoard.map((item, key) => (
+                        <p>@john: {item.score}</p> 
+                    ))}
                     <p className='points-board-restart' onClick={this.restartHandler}>Play Again?</p>
                 </div> 
                 <div className='nextRound-container'> 
