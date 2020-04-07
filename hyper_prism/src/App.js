@@ -40,7 +40,7 @@ leaderStats = () => {
     axios.get(`${process.env.REACT_APP_USERSTATS}`)
         .then(response => {
             this.setState({
-                leaderBoard: response.data.sort((a, b) => a.score > b.score ? 1 : -1 )
+                leaderBoard: response.data.sort((a, b) => a.score > b.score ? -1 : 1 )
             })
         })
         .catch(error => {

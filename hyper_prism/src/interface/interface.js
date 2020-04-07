@@ -206,6 +206,7 @@ export default class Interface extends React.Component{
         //console.log("SCORE: ",this.state.score)
         //console.log("TURNS: ", this.state.turns)
         //console.log("ATTEMPTS", this.state.attempts)
+        console.log(this.props.leaderBoard)
         return(
             <div>
                 <h1 className="header">Hyper Prism</h1>
@@ -219,8 +220,8 @@ export default class Interface extends React.Component{
                 </div> 
                 <div className='points-board'>
                     <h2>Leader Board</h2>
-                        {this.props.leaderBoard.reverse().map((item, key) => (
-                            key <= 3 ? <p>{key}: @john: {item.score}</p> : ''
+                        {this.props.leaderBoard.map((item, key) => (
+                            key <= 5 ? <p>{key + 1}: {item['users.username']}: {item.score}</p> : ''
                         ))}
                     <p className='points-board-restart' onClick={this.restartHandler}>Play Again?</p>
                 </div> 
