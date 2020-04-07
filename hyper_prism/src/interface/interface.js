@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 import '../styles/interface.css'
 
 export default class Interface extends React.Component{
@@ -206,7 +207,6 @@ export default class Interface extends React.Component{
         //console.log("SCORE: ",this.state.score)
         //console.log("TURNS: ", this.state.turns)
         //console.log("ATTEMPTS", this.state.attempts)
-        console.log(this.props.leaderBoard)
         return(
             <div>
                 <h1 className="header">Hyper Prism</h1>
@@ -221,7 +221,7 @@ export default class Interface extends React.Component{
                 <div className='points-board'>
                     <h2>Leader Board</h2>
                         {this.props.leaderBoard.map((item, key) => (
-                            key <= 5 ? <p>{key + 1}: {item['users.username']}: {item.score}</p> : ''
+                            key <= 5 ? <p key={key}>{key + 1}: {item['users.username']}: {item.score}</p> : ''
                         ))}
                     <p className='points-board-restart' onClick={this.restartHandler}>Play Again?</p>
                 </div> 
@@ -244,8 +244,8 @@ export default class Interface extends React.Component{
                         </div> 
                     </div>  
                     <div className="controls">
-                        <div onClick={this.restartHandler} class = "restart">Restart</div>
-                        <div type='submit'>Menu</div>
+                        <div onClick={this.restartHandler} className="restart">Restart</div>
+                        <div type='submit'><Link to='menu'>Menu</Link></div>
                     </div>
                 </div>   
                 <div className="round2">Begin Next Round</div> 

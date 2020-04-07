@@ -1,6 +1,7 @@
 import React from 'react';
 import Interface from './interface/interface'
 import Register from './forms/register'
+import Menu from './menu/menu'
 import {Route} from 'react-router-dom'
 import Login from './forms/login'
 import axios from 'axios'
@@ -52,6 +53,7 @@ leaderStats = () => {
     render(){
         return (
             <div>
+                <Route exact path ='/menu' component={Menu}/> 
                 <Route exact path = '/' render={props => (
                     <Interface {...props} userInfo={this.state} leaderBoard={this.state.leaderBoard}/>
                 )}/>
