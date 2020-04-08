@@ -30,7 +30,7 @@ export default class Menu extends React.Component{
         return(
             <div>
                 <h1 className="header">Hyper Prism</h1>
-                <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
+                <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green", marginBottom: '0px'}} /> 
                 <div className="grand-menu-container">
                     <div className='menu-container'>
                         <div className='box'>
@@ -60,7 +60,7 @@ export default class Menu extends React.Component{
                     </div>  
                     <div className="controls">
                         <div onClick={this.restartHandler} className="restart">Restart</div>
-                        <div type='submit'><NavLink style={{textDecoration: "none"}} to='/'>Return</NavLink></div>
+                        <div type='submit'><NavLink style={{textDecoration: "none", fontWeight: "800", color: "white"}} to='/'>Return</NavLink></div>
                     </div>
                 </div>   
             </div> 

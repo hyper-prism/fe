@@ -213,7 +213,8 @@ export default class Interface extends React.Component{
                 <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
                 <div className="container">
                     <span className="span-container"> 
-                        <span> @anon</span>
+                    {this.props.userInfo.loggedIn === true ?<span> @{localStorage.getItem('username')}</span> : <span>Guest</span>}
+                        
                         <span style={{color: "white"}}>Score: {this.state.score} </span> 
                     </span>
                     <div className="triangle"></div> 
@@ -245,7 +246,7 @@ export default class Interface extends React.Component{
                     </div>  
                     <div className="controls">
                         <div onClick={this.restartHandler} className="restart">Restart</div>
-                        <div type='submit'><Link to='menu'>Menu</Link></div>
+                        <div type='submit'><Link style={{fontWeight: "800", color: "white"}} to='menu'>Menu</Link></div>
                     </div>
                 </div>   
                 <div className="round2">Begin Next Round</div> 
