@@ -31,10 +31,20 @@ export default class Menu extends React.Component{
             <div>
                 <h1 className="header">Hyper Prism</h1>
                 <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
-                <div className="container">
-                    <p>How To Play</p>
-                    <p>Hall of Records</p>
-                    <p>Join</p>
+                <div className="grand-menu-container">
+                    <div className='menu-container'>
+                        <div className='box'>
+                            <p>-How To Play-</p>
+                        </div>
+                        <hr style={{borderBottom:"1px solid green", width: '100%', marginTop: "0px", marginBottom: "0px"}} /> 
+                        <div className='box'>
+                            <p>Hall of Records</p>
+                        </div> 
+                        <hr style={{borderBottom:"1px solid green", width: '100%', marginTop: "0px", marginBottom: "0px"}} /> 
+                        <div className='box'>
+                            <p>join</p> 
+                        </div>  
+                    </div> 
                 </div> 
                 <div className='controls-container'> 
                     <div className="numbers"> 
