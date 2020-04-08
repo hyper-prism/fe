@@ -1,7 +1,7 @@
 .grand-menu-container{
     display: flex;
     justify-content: center;
-    height: 61%;
+    height: 64%;
     position: absolute;
     width: 100%;
 }
@@ -27,6 +27,11 @@
     align-items: center; 
     justify-content: center; 
 }
+
+.box:hover{
+    background: green; 
+}
+
 .menu-container p{
     color: white; 
     text-align: center; 
