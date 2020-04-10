@@ -36,11 +36,11 @@ export default class Menu extends React.Component{
                         <div className='box'>
                             <p>-How To Play-</p>
                         </div>
-                        <hr style={{borderBottom:"1px solid green", width: '100%', marginTop: "0px", marginBottom: "0px"}} /> 
+                        <hr style={{borderColor: "darkgreen", width: '100%', marginTop: "0px", marginBottom: "0px"}} /> 
                         <div className='box'>
                             <p>Hall of Records</p>
                         </div> 
-                        <hr style={{borderBottom:"1px solid green", width: '100%', marginTop: "0px", marginBottom: "0px"}} /> 
+                        <hr style={{borderColor:"darkgreen", width: '100%', marginTop: "0px", marginBottom: "0px"}} /> 
                         <div className='box'>
                             <p>join</p> 
                         </div>  

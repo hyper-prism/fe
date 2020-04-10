@@ -6,13 +6,15 @@
 
 form{
     position: absolute;
-    top: 30%; 
+    top: 25%; 
     display: flex; 
     flex-wrap: wrap; 
     align-items: center; 
     width: 100%;
     flex-direction: column; 
     color: green; 
+    padding: 30px; 
+    background: rgba(0, 0, 0, 0.507);
 }
 
 form input{
@@ -21,7 +23,7 @@ form input{
     border-top: 0px solid black; 
     color: green; 
     border-bottom: 2px solid green; 
-    background: black; 
+    background: rgba(0, 0, 0, 0); 
     margin-bottom: 20px; 
     height: 25px; 
     width: 70%; 

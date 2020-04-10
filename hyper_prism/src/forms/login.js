@@ -37,7 +37,7 @@ export default class Login extends React.Component{
     
     render(){
         return(
-            <div> 
+            <div className='container'> 
                 <form>
                     <input placeholder='Username' 
                            name='username' 

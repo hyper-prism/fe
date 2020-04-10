@@ -208,7 +208,7 @@ export default class Interface extends React.Component{
         //console.log("TURNS: ", this.state.turns)
         //console.log("ATTEMPTS", this.state.attempts)
         return(
-            <div>
+            <div className='hyper-prism-container'>
                 <h1 className="header">Hyper Prism</h1>
                 <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
                 <div className="container">
@@ -222,7 +222,7 @@ export default class Interface extends React.Component{
                 <div className='points-board'>
                     <h2>Leader Board</h2>
                         {this.props.leaderBoard.map((item, key) => (
-                            key <= 5 ? <p key={key}>{key + 1}: {item['users.username']}: {item.score}</p> : ''
+                            key <= 4 ? <p key={key}>{key + 1}: {item['users.username']}: {item.score}</p> : ''
                         ))}
                     <p className='points-board-restart' onClick={this.restartHandler}>Play Again?</p>
                 </div> 
@@ -246,7 +246,7 @@ export default class Interface extends React.Component{
                     </div>  
                     <div className="controls">
                         <div onClick={this.restartHandler} className="restart">Restart</div>
-                        <div type='submit'><Link style={{fontWeight: "800", color: "white"}} to='menu'>Menu</Link></div>
+                        <div type='submit'><Link style={{fontWeight: "800", color: "white", textDecoration: "none"}} to='menu'>Menu</Link></div>
                     </div>
                 </div>   
                 <div className="round2">Begin Next Round</div> 

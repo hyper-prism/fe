@@ -41,6 +41,7 @@ export default class Register extends React.Component{
     
     render(){
         return(
+            <div className='container'>
                 <form>
                     <h3>Create an account</h3>
 
@@ -64,6 +65,7 @@ export default class Register extends React.Component{
                     />
                     <div  className='form-button' onClick={this.submitHandler}>Submit</div>
                 </form>
+            </div> 
         )
     }
 }

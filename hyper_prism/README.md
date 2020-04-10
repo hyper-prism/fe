@@ -282,3 +282,15 @@ header.style.transition = "1s";
 turns = 0;
 burns = 0; 
 input.placeholder = score; 
+
+
+
+
+.container{
+    background: url(hyper-prism.png);
+    background-position: center; 
+    background-size: cover; 
+    height: -webkit-fill-available;
+    width: 100%;    
+    max-width: 100%;
+}
