@@ -96,7 +96,8 @@ export default class Interface extends React.Component{
             this.setState({
                 turns: 10,
                 counter: 0,
-                score: this.state.score += sum - 1
+                score: this.state.score += sum - 1,
+                attempts: this.state.attempts
             })    
             this.nextRoundButton()
         } else if(result === false && this.state.score > 0){
@@ -149,7 +150,8 @@ export default class Interface extends React.Component{
         this.setState({
             turns: 10,
             counter: 0,
-            score: this.state.score
+            score: this.state.score,
+            attempts: this.state.attempts
         })
         document.querySelector('.nextRound').style.opacity = '0'
         document.querySelector('.nextRound').style.transition = '3s'        
@@ -169,7 +171,7 @@ export default class Interface extends React.Component{
             user_id: this.props.userInfo.userID,
             score: this.state.score,
             rounds: 1,
-            turns: this.state.turns,
+            turns: this.state.attempts + 1,
             awards: 'NEW',
             date: '1/20/22',
             rank: '1st place'
