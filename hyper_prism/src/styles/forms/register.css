@@ -1,19 +1,30 @@
 
+.login-container{
+    background: url(hyper-prism.png);
+    background-position: center; 
+    background-size: contain; 
+    height: -webkit-fill-available;
+    width: 100%;    
+    max-width: 100%;
+    color: darkgreen; 
+}
+
+.login-container h3{
+    font-size: 20px; 
+    font-weight: bold; 
+}
 
 .form-container h2{
     color: green; 
 }
 
 form{
-    position: absolute;
-    top: 25%; 
     display: flex; 
     flex-wrap: wrap; 
     align-items: center; 
     width: 100%;
     flex-direction: column; 
     color: green; 
-    padding: 30px; 
     background: rgba(0, 0, 0, 0.507);
 }
 
@@ -41,4 +52,14 @@ form input::placeholder{
     width: 40%; 
     padding: 5px; 
     display: inline-block;
+}
+
+.submit-button{
+    border: 1px solid darkgreen; 
+    padding:7px; 
+    margin-top: 10px; 
+}
+
+.form h3{
+    color: white; 
 }

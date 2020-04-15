@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 import '../styles/forms/register.css'
 import axios from 'axios' 
 
@@ -37,28 +38,39 @@ export default class Login extends React.Component{
     
     render(){
         return(
-            <div className='container'> 
-                <form>
+            <div className='login-container'> 
+                <h1 className="header">Hyper Prism</h1>
+                <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green", marginBottom: '0px'}} /> 
+                <div className="grand-menu-container">
+                    <div className='menu-container'>
+                    <h3>Create an account</h3>
+                    <form>
+
                     <input placeholder='Username' 
                            name='username' 
                            value={this.state.username} 
                            onChange={this.changeHandler}
                            type='text'
                     />
+                    <br/>
                     <input placeholder='Email'
                            name='email'
                            type='text'
                            onChange={this.changeHandler}
                            value={this.state.email}
                     />
+                    <br/> 
                     <input name='password'
                            type='password'
                            placeholder='Password'
                            value={this.state.password}
                            onChange={this.changeHandler}
                     />
-                    <div onClick={this.submitHandler}>Submit</div>
+                    <div className='submit-button' onClick={this.submitHandler}>Submit</div>
                 </form>
+
+                    </div> 
+                </div> 
             </div> 
         )
     }

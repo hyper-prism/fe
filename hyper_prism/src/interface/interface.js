@@ -211,13 +211,12 @@ export default class Interface extends React.Component{
         //console.log("ATTEMPTS", this.state.attempts)
         return(
             <div className='hyper-prism-container'>
-                <h1 className="header">Hyper Prism</h1>
-                <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
+                    <h1 className="header">Hyper Prism</h1>
+                    <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green"}} /> 
                 <div className="container">
                     <span className="span-container"> 
-                    {this.props.userInfo.loggedIn === true ?<span> @{localStorage.getItem('username')}</span> : <span>Guest</span>}
-                        
-                        <span style={{color: "white"}}>Score: {this.state.score} </span> 
+                        {this.props.userInfo.loggedIn === true ? <span>@{localStorage.getItem('username')}</span> : <span>Guest</span>}                      
+                            <span style={{color: "white"}}>Score: {this.state.score} </span> 
                     </span>
                     <div className="triangle"></div> 
                 </div> 
