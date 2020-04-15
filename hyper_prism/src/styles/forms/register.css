@@ -1,9 +1,5 @@
 
 .login-container{
-    background: url(hyper-prism.png);
-    background-position: center; 
-    background-size: contain; 
-    height: -webkit-fill-available;
     width: 100%;    
     max-width: 100%;
     color: darkgreen; 
@@ -12,6 +8,7 @@
 .login-container h3{
     font-size: 20px; 
     font-weight: bold; 
+    margin-bottom: 0px;
 }
 
 .form-container h2{
@@ -32,8 +29,9 @@ form input{
     border-right: 0px solid black;
     border-left: 0px solid black;
     border-top: 0px solid black; 
-    color: green; 
-    border-bottom: 2px solid green; 
+    color: darkgreen; 
+    border-bottom: 2px solid darkgreen; 
+    font-weight: 800; 
     background: rgba(0, 0, 0, 0); 
     margin-bottom: 20px; 
     height: 25px; 
@@ -41,7 +39,7 @@ form input{
 }
 
 form input::placeholder{
-    color: green;
+    color: darkgreen;
     font-size: 16px; 
     font-family: 'Michroma', sans-serif;
 
@@ -56,7 +54,7 @@ form input::placeholder{
 
 .submit-button{
     border: 1px solid darkgreen; 
-    padding:7px; 
+    padding: 7px 35px; 
     margin-top: 10px; 
 }
 

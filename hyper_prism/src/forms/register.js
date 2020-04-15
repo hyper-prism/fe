@@ -41,7 +41,7 @@ export default class Register extends React.Component{
     
     render(){
         return(
-            <div className='login-container'>
+            <div className='login-container'> 
                 <h1 className="header">Hyper Prism</h1>
                 <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green", marginBottom: '0px'}} /> 
                 <div className="grand-menu-container">
@@ -68,7 +68,7 @@ export default class Register extends React.Component{
                            value={this.state.password}
                            onChange={this.changeHandler}
                     />
-                    <div  className='form-button' onClick={this.submitHandler}>Submit</div>
+                    <div  className='submit-button' onClick={this.submitHandler}>Submit</div>
                 </form>
                 </div>
                 </div>
