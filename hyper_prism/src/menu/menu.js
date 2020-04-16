@@ -29,23 +29,27 @@ export default class Menu extends React.Component{
     render(){
         return(
             <div>
-                <h1 className="header">Hyper Prism</h1>
-                <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green", marginBottom: '0px'}} /> 
-                <div className="grand-menu-container">
-                    <div className='menu-container'>
-                        <div className='box'>
-                            <p>-How To Play-</p>
-                        </div>
-                        <hr style={{borderColor: "darkgreen", width: '100%', marginTop: "0px", marginBottom: "0px"}} /> 
-                        <div className='box'>
-                            <p>Hall of Records</p>
-                        </div> 
-                        <hr style={{borderColor:"darkgreen", width: '100%', marginTop: "0px", marginBottom: "0px"}} /> 
-                        <div className='box'>
-                            <p>join</p> 
-                        </div>  
+                <div>
+                    <h1 className="header">Hyper Prism</h1>                
+                    <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green", marginBottom: '0px'}} /> 
+                </div>
+                <div className='grand-container'>
+                <div className='menu-container'>
+                    <h2 style={{color: 'white', textDecoration: 'underline'}}>Menu</h2>
+                    <div className='box'>
+                        <p>-How To Play-</p>
+                    </div>
+                    <div className='box'>
+                        <p>Hall of Records</p>
                     </div> 
-                </div> 
+                    <div className='box'>
+                        <p>join</p> 
+                    </div>  
+                    <div className='box'>
+                        <p>join</p> 
+                    </div>  
+                </div>
+                </div>  
                 <div className='controls-container'> 
                     <div className="numbers"> 
                         <div onClick={this.buttonHandler.bind(this, this.state.nums.button1)}>

@@ -52,7 +52,7 @@ leaderStats = () => {
    
     render(){
         return (
-            <div style={{marginBottom: '0px', marginTop: '0px'}}>
+            <div className='main-container'>
                 <Route exact path ='/menu' component={Menu}/> 
                 <Route exact path = '/' render={props => (
                     <Interface {...props} userInfo={this.state} leaderBoard={this.state.leaderBoard}/>
