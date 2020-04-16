@@ -167,6 +167,9 @@ button{
     display: flex; 
     width: 100%; 
     justify-content: center; 
+    position: absolute; 
+    top: 24%;
+    line-height: 1; 
     flex-direction: column; 
     align-items: center; 
     font-weight: 800; 
@@ -191,3 +194,7 @@ p.points-board-restart{
     font-size: 11px; 
 }
 
+.points-board-restart:active{
+    background: darkgreen;
+    transition: 3s;  
+}

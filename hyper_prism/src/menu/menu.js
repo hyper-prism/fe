@@ -43,10 +43,10 @@ export default class Menu extends React.Component{
                         <p>Hall of Records</p>
                     </div> 
                     <div className='box'>
-                        <p>join</p> 
+                        <p>Join</p> 
                     </div>  
                     <div className='box'>
-                        <p>join</p> 
+                        <p>Contact</p> 
                     </div>  
                 </div>
                 </div>  
