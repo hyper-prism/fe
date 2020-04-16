@@ -37,16 +37,16 @@ export default class Menu extends React.Component{
                 <div className='menu-container'>
                     <h2 style={{color: 'white', textDecoration: 'underline'}}>Menu</h2>
                     <div className='box'>
-                        <p>-How To Play-</p>
+                        <NavLink  style={{textDecoration: 'none'}} to='Register'><p>-How To Play-</p></NavLink>
                     </div>
                     <div className='box'>
                         <p>Hall of Records</p>
                     </div> 
+                        <div className='box'><p>Join</p></div>                        
                     <div className='box'>
-                        <p>Join</p> 
-                    </div>  
-                    <div className='box'>
+                    <NavLink  style={{textDecoration: 'none'}} to='register'>
                         <p>Contact</p> 
+                    </NavLink>
                     </div>  
                 </div>
                 </div>  
