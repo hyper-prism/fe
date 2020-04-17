@@ -294,3 +294,6 @@ input.placeholder = score;
     width: 100%;    
     max-width: 100%;
 }
+
+
+color: #38ff38

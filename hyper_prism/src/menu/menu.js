@@ -34,21 +34,21 @@ export default class Menu extends React.Component{
                     <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green", marginBottom: '0px'}} /> 
                 </div>
                 <div className='grand-container'>
-                <div className='menu-container'>
-                    <h2 style={{color: 'white', textDecoration: 'underline'}}>Menu</h2>
-                    <div className='box'>
-                        <NavLink  style={{textDecoration: 'none'}} to='Register'><p>-How To Play-</p></NavLink>
+                    <div className='menu-container'>
+                        <h2 style={{color: 'white', textDecoration: 'underline'}}>Menu</h2>
+                        <div className='box'>
+                            <NavLink  style={{textDecoration: 'none'}} to='Register'><p>-How To Play-</p></NavLink>
+                        </div>
+                        <div className='box'>
+                            <p>Hall of Records</p>
+                        </div>
+                        <NavLink  style={{textDecoration: 'none', width: '100%'}} to='register'>
+                            <div className='box'><p>Sign Up</p></div> 
+                        </NavLink>                                                   
+                        <div className='box'>                       
+                            <p>Contact</p> 
+                        </div>  
                     </div>
-                    <div className='box'>
-                        <p>Hall of Records</p>
-                    </div> 
-                        <div className='box'><p>Join</p></div>                        
-                    <div className='box'>
-                    <NavLink  style={{textDecoration: 'none'}} to='register'>
-                        <p>Contact</p> 
-                    </NavLink>
-                    </div>  
-                </div>
                 </div>  
                 <div className='controls-container'> 
                     <div className="numbers"> 

@@ -2,7 +2,7 @@
 .login-container{
     width: 100%;    
     max-width: 100%;
-    color: darkgreen; 
+    color: darkgreen;     
 }
 
 .login-container h3{
@@ -36,6 +36,11 @@ form input{
     margin-bottom: 20px; 
     height: 25px; 
     width: 70%; 
+    font-family: 'Michroma', sans-serif;
+}
+
+form input:focus{
+    outline: none; 
 }
 
 form input::placeholder{
@@ -53,13 +58,15 @@ form input::placeholder{
 }
 
 .submit-button{
-    border: 1px solid darkgreen; 
+    border: 2px solid darkgreen; 
     padding: 7px 35px; 
     margin-top: 10px; 
     background: white; 
     font-weight: 800; 
+    border-radius: 5px; 
 }
 
-.form h3{
-    color: white; 
+.menu-container h3{
+    color: green; 
+    padding-bottom: 20px; 
 }

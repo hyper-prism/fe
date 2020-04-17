@@ -72,6 +72,8 @@ export default class Register extends React.Component{
                            onChange={this.changeHandler}
                     />
                     <div  className='submit-button' onClick={this.submitHandler}>Submit</div>
+                    <br/>
+                    <p style={{color: 'white', fontWeight: '800', fontSize: '12px'}}>Already have an account?<NavLink to='Login'>Sign In Here</NavLink></p>
                 </form>
                 </div>
                 </div>
