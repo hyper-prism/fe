@@ -2,6 +2,7 @@ import React from 'react';
 import Interface from './interface/interface'
 import Register from './forms/register'
 import Menu from './menu/menu'
+import Contact from './contact/contact'
 import {Route} from 'react-router-dom'
 import Login from './forms/login'
 import axios from 'axios'
@@ -57,8 +58,9 @@ leaderStats = () => {
                 <Route exact path = '/' render={props => (
                     <Interface {...props} userInfo={this.state} leaderBoard={this.state.leaderBoard}/>
                 )}/>
-                <Route exact path = '/Register' component={Register} />
-                <Route exact path = '/Login' component={Login} /> 
+                <Route exact path='/Register' component={Register} />
+                <Route exact path='/Login' component={Login} /> 
+                <Route exact path='/contact' component={Contact}/>
             </div>
         );
     }

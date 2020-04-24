@@ -69,6 +69,7 @@ export default class Login extends React.Component{
                                    onChange={this.changeHandler}
                             />
                             <div className='submit-button' onClick={this.submitHandler}>Submit</div>
+                            <br/>
                             <p style={{color: 'white', fontWeight: '800', fontSize: '12px'}}>Not A Member?<NavLink to='Register' style={{paddingLeft: '5px'}}>Sign Up Here!</NavLink></p>
                         </form>
                     </div> 
