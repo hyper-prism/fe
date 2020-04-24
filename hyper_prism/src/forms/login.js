@@ -38,39 +38,58 @@ export default class Login extends React.Component{
     
     render(){
         return(
-            <div className='login-container'> 
-                <h1 className="header">Hyper Prism</h1>
-                <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green", marginBottom: '0px'}} /> 
-                <div className="grand-menu-container">
+            <div> 
+                <div> 
+                    <h1 className="header">Hyper Prism</h1>
+                    <hr style={{width:'100%', borderBottomColor: 'green', boxShadow: "1px 2px 2px 1px green", marginBottom: '0px'}} /> 
+                </div> 
+                <div className="grand-container">
                     <div className='menu-container'>
-                    <h3>Create an account</h3>
-                    <form>
-
-                    <input placeholder='Username' 
-                           name='username' 
-                           value={this.state.username} 
-                           onChange={this.changeHandler}
-                           type='text'
-                    />
-                    <br/>
-                    <input placeholder='Email'
-                           name='email'
-                           type='text'
-                           onChange={this.changeHandler}
-                           value={this.state.email}
-                    />
-                    <br/> 
-                    <input name='password'
-                           type='password'
-                           placeholder='Password'
-                           value={this.state.password}
-                           onChange={this.changeHandler}
-                    />
-                    <div className='submit-button' onClick={this.submitHandler}>Submit</div>
-                </form>
-
+                        <h3>Login</h3>
+                        <form>
+    
+                            <input placeholder='Username' 
+                                   name='username' 
+                                   value={this.state.username} 
+                                   onChange={this.changeHandler}
+                                   type='text'
+                            />
+                            <br/>
+                            <input placeholder='Email'
+                                   name='email'
+                                   type='text'
+                                   onChange={this.changeHandler}
+                                   value={this.state.email}
+                            />
+                            <br/> 
+                            <input name='password'
+                                   type='password'
+                                   placeholder='Password'
+                                   value={this.state.password}
+                                   onChange={this.changeHandler}
+                            />
+                            <div className='submit-button' onClick={this.submitHandler}>Submit</div>
+                            <p style={{color: 'white', fontWeight: '800', fontSize: '12px'}}>Not A Member?<NavLink to='Register' style={{paddingLeft: '5px'}}>Sign Up Here!</NavLink></p>
+                        </form>
                     </div> 
                 </div> 
+                <div className='controls-container'> 
+                    <div className="numbers"> 
+                        <div>
+                            <h1 className="choice1 button1">I</h1>
+                        </div> 
+                        <div> 
+                            <h1 className="choice1 button2" >II</h1>
+                        </div> 
+                        <div> 
+                            <h1 className="choice1 button3">III</h1>
+                        </div> 
+                    </div>  
+                    <div className="controls">
+                        <div onClick={this.restartHandler} className="restart">Restart</div>
+                        <div type='submit'><NavLink style={{textDecoration: "none", fontWeight: "800", color: "white"}} to='/'>Return</NavLink></div>
+                    </div>
+                </div>
             </div> 
         )
     }
