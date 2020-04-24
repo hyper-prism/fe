@@ -45,11 +45,11 @@ export default class Menu extends React.Component{
                         <NavLink  style={{textDecoration: 'none', width: '100%'}} to='register'>
                             <div className='box'><p>Sign Up</p></div> 
                         </NavLink>         
-                        <NavLink to='contact'>                                          
-                        <div className='box'>                       
-                            <p>Contact</p> 
+                        <div className='box'> 
+                            <NavLink to='contact'>                                          
+                                <p>Contact</p> 
+                            </NavLink>
                         </div>  
-                        </NavLink>
                     </div>
                 </div>  
                 <div className='controls-container'> 
