@@ -222,9 +222,16 @@ export default class Interface extends React.Component{
                 </div> 
                 <div className='points-board'>
                     <h2>Leader Board</h2>
+                    <div className='leader-container'> 
                         {this.props.leaderBoard.map((item, key) => (
-                            key <= 4 ? <p key={key}>{key + 1}: {item['users.username']}: {item.score}</p> : ''
+                            key <= 4 ? 
+                                <div className='leader-info'>
+                                    <p key={key}>{item['users.username']}:</p>
+                                    <span>{item.score}</span>
+                                </div> 
+                            : ''
                         ))}
+                    </div> 
                     <p className='points-board-restart' onClick={this.restartHandler}>Play Again?</p>
                 </div> 
                 <div className='nextRound-container'> 
