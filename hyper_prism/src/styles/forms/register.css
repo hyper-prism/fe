@@ -70,3 +70,8 @@ form input::placeholder{
     color: green; 
     padding-bottom: 20px; 
 }
+
+textarea{
+    width: 70%; 
+    height: 85px; ;
+}

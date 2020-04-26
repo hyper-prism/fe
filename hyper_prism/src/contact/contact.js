@@ -31,7 +31,7 @@ export default class Contact extends React.Component{
                 </div>
                 <div className='grand-container'>
                     <div className='menu-container'>
-                        <h3>Create an account</h3>
+                        <h3>Contact</h3>
                         <form>
                             <input name='name'
                                    placeholder='Name'
