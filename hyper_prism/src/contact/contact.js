@@ -3,7 +3,6 @@ import {NavLink} from 'react-router-dom'
 import '../styles/forms/register.css'
 
 
-
 export default class Contact extends React.Component{
     constructor(){
         super()
@@ -14,12 +13,16 @@ export default class Contact extends React.Component{
         }
     }
 
-    changeHandler = () => {
-
+    changeHandler = (event) => {
+        event.preventDefault()
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
-    submitHandler = () => {
-
+    submitHandler = (event) => {
+        event.preventDefault()
+        console.log(this.state)
     }
 
     render(){
