@@ -3,6 +3,7 @@ import Interface from './interface/interface'
 import Register from './forms/register'
 import Menu from './menu/menu'
 import Contact from './contact/contact'
+import HowToPlay from './howToPlay/howToPlay'
 import {Route} from 'react-router-dom'
 import Login from './forms/login'
 import axios from 'axios'
@@ -59,6 +60,7 @@ leaderStats = () => {
                     <Interface {...props} userInfo={this.state} leaderBoard={this.state.leaderBoard}/>
                 )}/>
                 <Route exact path='/Register' component={Register} />
+                <Route exact path='/HowToPlay' component={HowToPlay}/> 
                 <Route exact path='/Login' component={Login} /> 
                 <Route exact path='/contact' component={Contact}/>
             </div>
