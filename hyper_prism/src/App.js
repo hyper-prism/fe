@@ -3,6 +3,7 @@ import Interface from './interface/interface'
 import Register from './forms/register'
 import Menu from './menu/menu'
 import Contact from './contact/contact'
+import Leaderboard from './leaderboard/leaderboard'
 import HowToPlay from './howToPlay/howToPlay'
 import {Route} from 'react-router-dom'
 import Login from './forms/login'
@@ -62,6 +63,9 @@ leaderStats = () => {
                 <Route exact path='/Register' component={Register} />
                 <Route exact path='/HowToPlay' component={HowToPlay}/> 
                 <Route exact path='/Login' component={Login} /> 
+                <Route exact path='/Leaderboard' render = {props => (
+                    <Leaderboard {...props} leaderBoard={this.state.leaderBoard} /> 
+                )}/> 
                 <Route exact path='/contact' component={Contact}/>
             </div>
         );

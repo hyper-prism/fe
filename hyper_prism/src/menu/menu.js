@@ -39,9 +39,9 @@ export default class Menu extends React.Component{
                         <div className='box'>
                             <NavLink  style={{textDecoration: 'none'}} to='Register'><p>-How To Play-</p></NavLink>
                         </div>
-                        <div className='box'>
-                            <p>Hall of Records</p>
-                        </div>
+                        <NavLink style={{textDecoration: 'none', width: '100%'}} to='Leaderboard'>
+                            <div className='box'><p>Hall of Records</p></div>
+                        </NavLink>
                         <NavLink  style={{textDecoration: 'none', width: '100%'}} to='register'>
                             <div className='box'><p>Sign Up</p></div> 
                         </NavLink>         
