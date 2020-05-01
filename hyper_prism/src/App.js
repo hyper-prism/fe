@@ -60,6 +60,7 @@ leaderStats = () => {
                 <Route exact path = '/' render={props => (
                     <Interface {...props} userInfo={this.state} leaderBoard={this.state.leaderBoard}/>
                 )}/>
+                <Route exact path='/how-to-play' component={HowToPlay}/> 
                 <Route exact path='/Register' component={Register} />
                 <Route exact path='/HowToPlay' component={HowToPlay}/> 
                 <Route exact path='/Login' component={Login} /> 
